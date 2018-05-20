@@ -11,7 +11,8 @@
 ::-webkit-scrollbar {
     display: none;
     background: transparent;
-    width: 0;
+    width: 0 !important;
+    -ms-overflow-style: none;
 }
 body, html{
     overflow-x: hidden;
@@ -191,10 +192,19 @@ button:hover::after {
     color: #fff;
     top: 5%;
 }
+button:active {
+    color: #35a79c;
+}
+button:active::after {
+    left: 100%;
+    opacity: 0;
+}
 .footer p {
     color: #444;
-    text-align: center;
-    margin-bottom: 20px;
+    position: absolute;
+    transform: translate(-40%);
+    left: 40%;
+    bottom: 20px;
 }
 @media screen and (max-width: 1300px){
     #panel h2, #panel ul {
@@ -211,12 +221,6 @@ button:hover::after {
         width: 70px;
         z-index: 10121;
         overflow: hidden;
-    }
-    #panel:hover {
-        background: #e1e1e1;
-    }
-    #panel:active {
-        background: #d4d4d4;
     }
     .main-theme {
         left: 0px;
