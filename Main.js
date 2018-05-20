@@ -7,7 +7,7 @@ var panel = false;
 setTimeout(function () {
     window.scrollTo(0,0);
     if(window.navigator.languages.join().search("en") != -1){
-        document.title = "Teton.js | Documentation";
+        document.title = "Tethon.js | Documentation";
         document.querySelector("#start h1").innerHTML = "Getting started";
         document.querySelector("#compatibility h1").innerHTML = "Available browsers";
         document.querySelector("#api h1").innerHTML = "API documentation";
@@ -24,7 +24,7 @@ setTimeout(function () {
         document.querySelectorAll("#panel ul li")[3].innerHTML = "Live examples";
         document.querySelectorAll("#panel ul li")[4].innerHTML = "Developers";
         document.querySelectorAll("#panel ul li")[5].innerHTML = "Download library";
-        document.querySelectorAll(".subheading")[0].innerHTML = "Teton – library for 2D games development. It based on Canvas + DOM Sprites technologies. For 100% use you should learn documentation in detail.";
+        document.querySelectorAll(".subheading")[0].innerHTML = "Tethon – library for 2D games development. It based on Canvas + DOM Sprites technologies. For 100% use you should learn documentation in detail.";
         document.querySelectorAll(".subheading")[1].innerHTML = "Here you can see how the current version of the library works with different browsers. Choose the browser to redirect for more information.";
         document.querySelectorAll(".table-heading")[0].innerHTML = "Browser";
         document.querySelectorAll(".table-heading")[1].innerHTML = "Available";
@@ -36,13 +36,13 @@ setTimeout(function () {
         });
         document.querySelectorAll(".subheading")[3].innerHTML = "At first we need to understand what the API is. API – a set of ready-maded classes, functions, constants provided by the application for use in external software products.<br> This library, oddly enough, also has a set of functions.";
         document.querySelectorAll(".subheading")[4].innerHTML = "Games, based on this library.";
-        document.querySelectorAll(".subheading")[5].innerHTML = "You can test your code with special developed <button onclick=\"window.open('https://xepcore.com/test', '_blank')\">utility</button>.";
+        document.querySelectorAll(".subheading")[5].innerHTML = "You can test your code with special developed <button onclick=\"window.open('https://tethonjs.com/test', '_blank')\">utility</button>.";
         document.querySelectorAll(".subheading")[6].innerHTML = 'The only developer of this library is Tigran Kashapov. He lives in Russia and yet... until we know nothing more about him ¯&#x5c;_(ツ)_/¯. But you can <button onclick="window.open(\'https://t.me/xceptio0n\', \'_blank\')">contact</button> with him...';
         document.querySelectorAll(".secondary p")[5].innerHTML = 'Place &lt;script&gt; before closing the &lt;/body&gt; to connect the library. Do not worry, this does not affect the operation of your site. No conflicts with plugins like jQuery, etc.';
         document.querySelectorAll(".secondary p")[7].innerHTML = 'Add &lt;link&gt; before closing the &lt;/head&gt; tag to connect the styles. They can conflict with other CSS files.';
         document.querySelector(".hidden").innerHTML = "* You can't choose the file from the file tree when you using small device.";
     } else {
-        document.title = "Teton.js | Документация";
+        document.title = "Tethon.js | Документация";
     }
     setTimeout(function () {
         document.querySelector("html").setAttribute("style", "scroll-behavior: smooth;");
