@@ -3,7 +3,8 @@ if(window.navigator.userAgent.search("MSIE") != -1){
     alert("Update your browser, please");
     window.close();
 }
-var panel = false;
+var panel = false,
+    objects = [];
 setTimeout(function () {
     window.scrollTo(0,0);
     if(window.navigator.languages.join().search("en") != -1){
@@ -47,6 +48,11 @@ setTimeout(function () {
     setTimeout(function () {
         document.querySelector("html").setAttribute("style", "scroll-behavior: smooth;");
         document.getElementById("container").style.opacity = "1";
+        // document.querySelectorAll("button").forEach(function (element) {
+        //     element.setAttribute("onmousedown", "var e=event,t=this;addWave(e,t)");
+        //     element.setAttribute("onmouseup", "var e=event,t=this;cancelWave(e);");
+        //     element.setAttribute("onmousemove", "var e=event,t=this;cancelWave(e);");
+        // });
     },400);
 },500);
 document.getElementById("panel").onclick = function (event) {
@@ -124,3 +130,27 @@ window.oncontextmenu = function (event) {
 document.getElementById("ico").oncontextmenu = function (event) {
     if(window.location.protocol.toString() == "https:") event.preventDefault();
 };
+function addWave(event, target){
+    var x = document.createElement("div"),
+        s = 1,
+        a = "o"+objects.length;
+    let v = objects.length;
+    x.setAttribute("id", "wave");
+    x.setAttribute("class", a + " w");
+    x.setAttribute("style", "top: " + (((event.clientY-150)-target.getBoundingClientRect().top)) + "px; left: " + ((event.clientX-150)-target.getBoundingClientRect().left) + "px; width: 300px; height: 300px");
+    target.appendChild(x);
+    eval("var " + a + " = setInterval(function(){s+=0.2;x.style.transform='scale('+s+')';},23);");
+    objects.push(a);
+    setTimeout(function(){
+        document.getElementsByClassName(a)[0].style.opacity = 0;
+        setTimeout(function(){
+            document.getElementsByClassName(a)[0].parentElement.removeChild(document.getElementsByClassName(a)[0]);
+            objects.remove(a);
+        }, 400);
+        clearInterval(a);
+    },1000);
+}
+function cancelWave(event){
+    if(event.path[0].id.search("wave") != -1) event.target.style.opacity = 0;
+}
+Array.prototype.remove=function(element){this.splice(this.indexOf(element),1)}
