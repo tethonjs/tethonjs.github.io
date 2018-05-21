@@ -1,3 +1,3 @@
 # TethonJS.com
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![LOGOTYPE](https://tethonjs.com/images/ico.svg)
 A framework to build games with JavaScript.
