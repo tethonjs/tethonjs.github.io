@@ -53,6 +53,7 @@ setTimeout(function () {
         //     element.setAttribute("onmouseup", "var e=event,t=this;cancelWave(e);");
         //     element.setAttribute("onmousemove", "var e=event,t=this;cancelWave(e);");
         // });
+        // <div onmousedown="var e=event,t=this;addWave(e,t)" onmouseup="var e=event,t=this;cancelWave(e);" onmousemove="var e=event,t=this;cancelWave(e);"></div>
     },400);
 },500);
 document.getElementById("panel").onclick = function (event) {
@@ -119,6 +120,11 @@ window.onscroll = function () {
         document.getElementsByClassName("active")[0].setAttribute("class", "panel-menu");
         document.getElementsByClassName("panel-menu")[5].setAttribute("class", "active");
     }
+    if(window.scrollY  > 1400){
+        document.querySelector("#to_top_button").style.opacity = 1;
+    } else if(window.scrollY < 1400){
+        document.querySelector("#to_top_button").style.opacity = 0;
+    }
 };
 function scrollToElement(id) {
     let elementY = window.scrollY + document.getElementById(id).getBoundingClientRect().top - 10;
@@ -130,14 +136,14 @@ window.oncontextmenu = function (event) {
 document.getElementById("ico").oncontextmenu = function (event) {
     if(window.location.protocol.toString() == "https:") event.preventDefault();
 };
-function addWave(event, target){
+function addWave(event, target, scale){
     var x = document.createElement("div"),
         s = 1,
         a = "o"+objects.length;
     let v = objects.length;
     x.setAttribute("id", "wave");
     x.setAttribute("class", a + " w");
-    x.setAttribute("style", "top: " + (((event.clientY-150)-target.getBoundingClientRect().top)) + "px; left: " + ((event.clientX-150)-target.getBoundingClientRect().left) + "px; width: 300px; height: 300px");
+    x.setAttribute("style", "top: " + (((event.clientY-(scale/2))-target.getBoundingClientRect().top)) + "px; left: " + ((event.clientX-(scale/2))-target.getBoundingClientRect().left) + "px; width: " + scale + "px; height: " + scale + "px");
     target.appendChild(x);
     eval("var " + a + " = setInterval(function(){s+=0.2;x.style.transform='scale('+s+')';},23);");
     objects.push(a);
