@@ -1,10 +1,12 @@
 window.scrollTo(0,0);
 if(window.navigator.userAgent.search("MSIE") != -1){
-    alert("Update your browser, please");
-    window.close();
+    while(true){
+        alert("Update your browser, please");
+    }
 }
 var panel = false,
-    objects = [];
+    objects = [],
+    canClick = true;
 setTimeout(function () {
     window.scrollTo(0,0);
     if(window.navigator.languages.join().search("en") != -1){
@@ -25,7 +27,7 @@ setTimeout(function () {
         document.querySelectorAll("#panel ul li")[3].innerHTML = "Live examples";
         document.querySelectorAll("#panel ul li")[4].innerHTML = "Developers";
         document.querySelectorAll("#panel ul li")[5].innerHTML = "Download library";
-        document.querySelectorAll(".subheading")[0].innerHTML = "Tethon – library for 2D games development. It based on Canvas + DOM Sprites technologies. For 100% use you should learn documentation in detail.";
+        document.querySelectorAll(".subheading")[0].innerHTML = "Tethon – is a library for 2D games development. It based on Canvas + DOM Sprites technologies. For 100% use you should learn documentation in detail.";
         document.querySelectorAll(".subheading")[1].innerHTML = "Here you can see how the current version of the library works with different browsers. Choose the browser to redirect for more information.";
         document.querySelectorAll(".table-heading")[0].innerHTML = "Browser";
         document.querySelectorAll(".table-heading")[1].innerHTML = "Available";
@@ -53,13 +55,17 @@ setTimeout(function () {
         //     element.setAttribute("onmouseup", "var e=event,t=this;cancelWave(e);");
         //     element.setAttribute("onmousemove", "var e=event,t=this;cancelWave(e);");
         // });
-        // <div onmousedown="var e=event,t=this;addWave(e,t)" onmouseup="var e=event,t=this;cancelWave(e);" onmousemove="var e=event,t=this;cancelWave(e);"></div>
+        // <div  onmousedown="var e=event,t=this;addWave(e,t,140,17,'rgba(0, 150, 136, 0.65)')" onmouseup="var e=event;cancelWave(e);" onmousemove="var e=event;cancelWave(e);"></div>
     },400);
 },500);
 document.getElementById("panel").onclick = function (event) {
     this.childNodes[5].style.display = "block";
     this.childNodes[3].style.display = "block";
-    if(event.srcElement.parentElement.id == "container"){
+    if(event.srcElement.parentElement.id == "container" && canClick){
+        canClick = false;
+        setTimeout(function () {
+            canClick = true;
+        },700);
         setTimeout(function () {
             if (window.innerWidth < 1300) {
                 if (!panel) {
@@ -120,11 +126,8 @@ window.onscroll = function () {
         document.getElementsByClassName("active")[0].setAttribute("class", "panel-menu");
         document.getElementsByClassName("panel-menu")[5].setAttribute("class", "active");
     }
-    if(window.scrollY  > 1400){
-        document.querySelector("#to_top_button").style.opacity = 1;
-    } else if(window.scrollY < 1400){
-        document.querySelector("#to_top_button").style.opacity = 0;
-    }
+    document.querySelectorAll(".progress1")[0].style.width = (window.scrollY / (document.body.clientHeight - window.innerHeight )) * 100 + "%";
+    document.querySelectorAll(".progress2")[0].style.width = (window.scrollY / (document.body.clientHeight - window.innerHeight )) * 80 + "%";
 };
 function scrollToElement(id) {
     let elementY = window.scrollY + document.getElementById(id).getBoundingClientRect().top - 10;
@@ -136,16 +139,17 @@ window.oncontextmenu = function (event) {
 document.getElementById("ico").oncontextmenu = function (event) {
     if(window.location.protocol.toString() == "https:") event.preventDefault();
 };
-function addWave(event, target, scale){
-    var x = document.createElement("div"),
-        s = 1,
-        a = "o"+objects.length;
+function addWave(event, target, scale = 10, start = 10, color = "#444"){
+    var x  = document.createElement("div"),
+        s  = 1,
+        a  = "o"+objects.length,
+        a2 = "t"+objects.length;
     let v = objects.length;
     x.setAttribute("id", "wave");
     x.setAttribute("class", a + " w");
-    x.setAttribute("style", "top: " + (((event.clientY-(scale/2))-target.getBoundingClientRect().top)) + "px; left: " + ((event.clientX-(scale/2))-target.getBoundingClientRect().left) + "px; width: " + scale + "px; height: " + scale + "px");
+    x.setAttribute("style", "top: " + (((event.clientY-(scale/2))-target.getBoundingClientRect().top)) + "px;left:" + ((event.clientX-(scale/2))-target.getBoundingClientRect().left) + "px;width:" + scale + "px;height:" + scale + "px;opacity:1;background:" + color);
     target.appendChild(x);
-    eval("var " + a + " = setInterval(function(){s+=0.2;x.style.transform='scale('+s+')';},23);");
+    eval("var " + a + "=setInterval(function(){s+=0.2;x.style.transform='scale('+s+')';}," + start + ");");
     objects.push(a);
     setTimeout(function(){
         document.getElementsByClassName(a)[0].style.opacity = 0;

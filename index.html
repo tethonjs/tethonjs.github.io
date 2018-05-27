@@ -15,6 +15,10 @@
 </head>
 <body>
     <div id="container" style="opacity: 0.001;">
+        <div id="progress_bar">
+            <div class="progress1"></div>
+            <div class="progress2"></div>
+        </div>
         <div id="panel">
             <object data="images/ico.svg" id="ico"></object>
             <h2>Tethon.js</h2>
@@ -26,10 +30,6 @@
                 <li onclick="scrollToElement('authors')" class="panel-menu">Разработчики</li>
                 <li onclick="scrollToElement('download')" class="panel-menu">Загрузка</li>
             </ul>
-            <div id="to_top_button" onmousedown="var e=event,t=this;addWave(e,t,140)" onmouseup="var e=event;cancelWave(e);" onmousemove="var e=event;cancelWave(e);" onclick="setTimeout(function(){scrollToElement('start');},50)">
-                <!--<img src="images/totop.svg">-->
-                <p><img src="images/totop.svg"><span>Go back</span></p>
-            </div>
         </div>
         <div class="wrapper main-theme">
             <div class="main" id="start">
