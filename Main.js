@@ -1,5 +1,5 @@
 window.scrollTo(0,0);
-if(window.navigator.userAgent.search("MSIE") != -1){
+if(window.navigator.userAgent.search("MSIE") != -1 && window.navigator.userAgent.search("IE") != -1){
     while(true){
         alert("Update your browser, please");
     }
@@ -9,6 +9,7 @@ var panel = false,
     canClick = true;
 setTimeout(function () {
     window.scrollTo(0,0);
+    document.querySelector("#footer").style.top = document.body.clientHeight + "px";
     if(window.navigator.languages.join().search("en") != -1){
         document.title = "Tethon.js | Documentation";
         document.querySelector("#start h1").innerHTML = "Getting started";
@@ -55,7 +56,7 @@ setTimeout(function () {
         //     element.setAttribute("onmouseup", "var e=event,t=this;cancelWave(e);");
         //     element.setAttribute("onmousemove", "var e=event,t=this;cancelWave(e);");
         // });
-        // <div  onmousedown="var e=event,t=this;addWave(e,t,140,17,'rgba(0, 150, 136, 0.65)')" onmouseup="var e=event;cancelWave(e);" onmousemove="var e=event;cancelWave(e);"></div>
+        // <div onmousedown="var e=event,t=this;addWave(e,t,140,17,'rgba(0, 150, 136, 0.65)')" onmouseup="var e=event;cancelWave(e);" onmousemove="var e=event;cancelWave(e);"></div>
     },400);
 },500);
 document.getElementById("panel").onclick = function (event) {
