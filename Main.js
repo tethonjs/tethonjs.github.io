@@ -50,7 +50,10 @@ setTimeout(function () {
     }
     setTimeout(function () {
         document.querySelector("html").setAttribute("style", "scroll-behavior: smooth;");
-        document.getElementById("container").style.opacity = "1";
+        document.getElementById("container").style.animation = "fade .5s";
+        setTimeout(function () {
+            document.getElementById("container").style.opacity = "1";
+        },400);
         // document.querySelectorAll("button").forEach(function (element) {
         //     element.setAttribute("onmousedown", "var e=event,t=this;addWave(e,t)");
         //     element.setAttribute("onmouseup", "var e=event,t=this;cancelWave(e);");
