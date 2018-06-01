@@ -9,7 +9,6 @@ var panel = false,
     canClick = true;
 setTimeout(function () {
     window.scrollTo(0,0);
-    document.querySelector("#footer").style.top = document.body.clientHeight + "px";
     if(window.navigator.languages.join().search("en") != -1){
         document.title = "Tethon.js | Documentation";
         document.querySelector("#start h1").innerHTML = "Getting started";
@@ -54,11 +53,6 @@ setTimeout(function () {
         setTimeout(function () {
             document.getElementById("container").style.opacity = "1";
         },400);
-        // document.querySelectorAll("button").forEach(function (element) {
-        //     element.setAttribute("onmousedown", "var e=event,t=this;addWave(e,t)");
-        //     element.setAttribute("onmouseup", "var e=event,t=this;cancelWave(e);");
-        //     element.setAttribute("onmousemove", "var e=event,t=this;cancelWave(e);");
-        // });
         // <div onmousedown="var e=event,t=this;addWave(e,t,140,17,'rgba(0, 150, 136, 0.65)')" onmouseup="var e=event;cancelWave(e);" onmousemove="var e=event;cancelWave(e);"></div>
     },400);
 },500);
