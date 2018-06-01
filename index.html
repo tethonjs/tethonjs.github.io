@@ -1,28 +1,145 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Testing Tethon...</title>
-        <style>
-            * {
-                padding: 0;
-                margin: 0;
-                position: relative;
-                top: 0;
-                left: 0;
-            }
-            #canvas {
-                display: block;
-                position: fixed;
-                text-align: center;
-            }
-            #__bs_notify__ {display: none;opacity: 0;position: fixed;top: -100%;}
-        </style>
-    </head>
-    <body>
-        <canvas id="canvas" style="position:absolute;left:50%;transform:translate(-50%)"></canvas>
-        <script src="Application/src/Main.js" type="module"></script>
-    </body>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#db61d8">
+    <meta name="msapplication-TileColor" content="#da4fad">
+    <meta name="theme-color" content="#ffffff">
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Tethon.js</title>
+</head>
+<body>
+<noscript style="width: 100%;height: 100%;color:#444;font-size:45px;background:#f2f2f2;z-index:3454354545;position:fixed;text-align:center;">Jesus Christ! Turn the <span style="color: #333;font-weight: 600;">JavaScript</span> on!</noscript>
+<div id="container" style="opacity:0.001;">
+    <div id="progress_bar">
+        <div class="progress1"></div>
+        <div class="progress2"></div>
+    </div>
+    <div id="panel">
+        <object data="images/ico.svg" id="ico"></object>
+        <h2>Tethon.js</h2>
+        <ul>
+            <li onclick="scrollToElement('start')" class="panel-menu active">Начало работы</li>
+            <li onclick="scrollToElement('compatibility')" class="panel-menu">Поддержка браузеров</li>
+            <li onclick="scrollToElement('api')" class="panel-menu">API документация</li>
+            <li onclick="scrollToElement('examples')" class="panel-menu">Примеры игр</li>
+            <li onclick="scrollToElement('authors')" class="panel-menu">Разработчики</li>
+            <li onclick="scrollToElement('download')" class="panel-menu">Загрузка</li>
+        </ul>
+    </div>
+    <div class="wrapper main-theme">
+        <div class="main" id="start">
+            <h1 class="heading">Введение</h1>
+            <p class="subheading">Tethon – библиотека, для разработки 2D игр. Базируется на технологии Canvas + DOM Sprites. Для использования потребуется детально изучить документацию.</p>
+        </div>
+        <div class="secondary">
+            <h3>Быстрая установка</h3>
+            <p>Для быстрой установки <button onclick="scrollToElement('download')">скачайте</button> исходники и подключите все необходимые модули, или можете просто скачать всё содержимое библиотеки.</p>
+            <h3>Структура библиотеки</h3>
+            <p>Выберите один из пунктов меню, нажмите на него для показа документации</p>
+            <p class="table">
+            <pre>
+<span class="link">XC</span>
+   └─ <span class="link">src</span>
+           ├─ <span class="link">Core.js</span>
+           └─ <span class="link">Logger</span>
+                    ├── <span class="link">Logger.js</span>
+                    └── <span class="link">customs.json</span>
+           └─ <span class="link">Events</span>
+                    ├── <span class="link">Event.js</span>
+                    └── <span class="link">Events</span>
+                             ├── <span class="link">PlayerEvent.js</span>
+                             └── <span class="link">TouchEvent.js</span>
+           └── <span class="link">Scene</span>
+                    ├── <span class="link">Scene.js</span>
+                    ├── <span class="link">Object.js</span>
+                    └── <span class="link">Text</span>
+                             └── <span class="link">Text.json</span>
+           └── <span class="link">lang.json</span>
+                </pre>
+            </p>
+            <p class="hidden" style="font-size:13px;font-style:italic;color: #999;"> * Для устройств с маленьким экраном выбор файла не доступен.</p>
+        </div>
+        <div class="main" id="compatibility" style="margin-top: 210px;">
+            <h1 class="heading">Совместимость</h1>
+            <p class="subheading">Здесь показана работа текущей версии библиотеки с разными браузерами. Нажмите на браузер, для перехода на оффициальный сайт.</p>
+            <table class="subheading">
+                <tr>
+                    <th class="table-heading">Браузер</th>
+                    <th class="table-heading">Работает</th>
+                </tr>
+                <tr>
+                    <td><a href="https://www.google.com/chrome/" target="_blank">Chrome</a></td>
+                    <td class="y">да</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.apple.com/ru/safari/" target="_blank">Safari</a></td>
+                    <td class="y">да</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.opera.com/" target="_blank">Opera</a></td>
+                    <td class="y">да</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a></td>
+                    <td class="y">да</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.microsoft.com/ru-ru/download/internet-explorer.aspx" target="_blank">Internet Explorer</a></td>
+                    <td class="n">нет</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="main" id="api" style="margin-top: 210px;">
+            <h1 class="heading">API документация</h1>
+            <p class="subheading">Итак, давайте для начала разберемся, что-же такое API. <br>API – набор готовых классов, функций, констант, предоставляемых приложением для использования во внешних программных продуктах.<br>У этой библиотеки как ни странно тоже есть набор функций.</p>
+        </div>
+
+        <div class="main" id="examples" style="margin-top: 210px;">
+            <h1 class="heading">Живые примеры</h1>
+            <p class="subheading">Список игр, разработанных на этой библиотеке</p>
+            <ul style="margin-left: 10px;">
+                <li>Mario – <a href="https://mario.tethon.io">https://mario.tethon.io</a> </li>
+                <li>Gravity – <a href="https://gravity.tethon.io">https://gravity.tethon.io</a> </li>
+                <li>Shooter – <a href="https://shooter.tethon.io">https://shooter.tethon.io</a> </li>
+            </ul>
+            <p class="subheading">Для тестирования кода, используйте специально разработанную для этого <button onclick="window.open('https://tethon.com/test', '_blank')">утилиту</button>.</p>
+        </div>
+
+        <div class="main" id="authors" style="margin-top: 210px;">
+            <h1 class="heading">Разработчики</h1>
+            <p class="subheading">Единственный разработчик это – Тигран Кашапов. Он живёт в России и ещё... пока мы больше ничего не знаем о нём ¯\_(ツ)_/¯. Но вы можете <button onclick="window.open('https://t.me/xceptio0n', '_blank')">связаться</button> с ним...</p>
+        </div>
+
+        <div class="main last" id="download" style="margin-top: 210px;">
+            <h1 class="heading">Установка</h1>
+            <div class="secondary" style="margin-top: -10px;">
+                <h3>JavaScript</h3>
+                <p>Поставьте &#60;script&#62; перед закрытием тега &#60;/body&#62;, чтобы подключить библиотеку. Не волнуйтесь, это никак не повлияет на работу вашего сайта. Никаких конфликтов с такими плагинами как jQuery и т.д.</p>
+                <div class="much-code t">
+                    <p><span class="tag">&#60;script</span><span class="attribute"> src=</span><span class="value">"https://code.tethon.com/all-modules.js"</span><span class="tag">&#62;&#60;/script&#62;</span></p>
+                </div>
+                <h3 style="margin-top: 65px;" class="css">CSS</h3>
+                <p>Поставьте &#60;link&#62; перед закрытием тега &#60;/head&#62;, чтобы подключить стили. Они могут конфликтовать с другими файлами CSS.</p>
+                <div class="much-code">
+                    <p><span class="tag">&#60;link</span><span class="attribute"> href=</span><span class="value">"https://code.tethon.com/all-styles.css"</span> <span class="attribute">rel=</span><span class="value">"stylesheet"</span><span class="tag">/&#62;</span></p>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <p>Tethon.js 2018</p>
+            <img src="images/totop.svg">
+            <div class="icon" onmousedown="var e=event,t=this;addWave(e,t,30,9,'rgba(255,250,255,.6');" onmouseup="var e=event;cancelWave(e);" onmousemove="var e=event;cancelWave(e);" onclick="scrollToElement('start')"></div>
+        </div>
+    </div>
+</div>
+<script src="Main.js" defer></script>
+<script>(function(l){var i,s={touchend:function(){}};for(i in s)l.addEventListener(i,s)})(document);document.addEventListener("touchstart",function(){},true);</script>
+</body>
 </html>
-<!--развернутый логгер ошибок, super duper шифрование-->
