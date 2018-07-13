@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Clidden.js</title>
+</head>
+<body>
+<div id="container" style="opacity: 0.01;">
+    <div id="progress_bar">
+        <div class="progress1"></div>
+        <div class="progress2"></div>
+    </div>
+    <div id="panel">
+        <object data="images/ico.svg" id="ico"></object>
+        <h2>Clidden.js</h2>
+        <ul>
+            <li onclick="scrollToElement('start')" class="panel-menu active">Phasellus condime</li>
+            <li onclick="scrollToElement('compatibility')" class="panel-menu">Cras iaculis purus</li>
+            <li onclick="scrollToElement('api')" class="panel-menu">Consectetur nulla</li>
+            <li onclick="scrollToElement('examples')" class="panel-menu">Sivamus non leo</li>
+            <li onclick="scrollToElement('authors')" class="panel-menu">Convallis pellentesque</li>
+            <li onclick="scrollToElement('download')" class="panel-menu">Irutrum sapien</li>
+        </ul>
+    </div>
+    <div class="wrapper main-theme">
+        <div class="main" id="start">
+            <h1 class="heading">Phasellus condime</h1>
+            <p class="subheading">Mauris ac metus at orci mollis mollis at eget eros. Mauris elit massa, tristique ut purus vel, ultricies molestie sem. Sed accumsan velit non.</p>
+        </div>
+        <div class="secondary">
+            <h3>Cras iaculise</h3>
+            <p>Praesent fringilla eros <button onclick="scrollToElement('download')">scroll</button> a varius cursus. Duis non erat ut nisl euismod feugiat eu eu nulla </p>
+            <h3>Vestibulum vetae</h3>
+            <p>Etiam vulputate augue nec viverra tincidunt. Nulla mattis faucibus velit sit amet tristique</p>
+        </div>
+        <div class="main clidden" id="compatibility" style="margin-top: 210px;" clidden-animation="fadeInRight .6s" clidden-from-bottom="50">
+            <h1 class="heading">Cras iaculis purus</h1>
+            <p class="subheading">Vivamus euismod bibendum augue, viverra efficitur lacus iaculis in. Morbi eu elit nisi. Mauris eget iaculis quam, sed blandit ipsum. Praesent tincidunt in metus sed.</p>
+            <table class="subheading">
+                <tbody><tr>
+                    <th class="table-heading">Browser</th>
+                    <th class="table-heading">Supports</th>
+                </tr>
+                <tr>
+                    <td><a href="https://www.google.com/chrome/" target="_blank">Chrome</a></td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.apple.com/ru/safari/" target="_blank">Safari</a></td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.opera.com/" target="_blank">Opera</a></td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a></td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td><a href="https://www.microsoft.com/ru-ru/download/internet-explorer.aspx" target="_blank">Internet Explorer 11</a></td>
+                    <td>yes</td>
+                </tr>
+                </tbody></table>
+        </div>
+
+        <div class="main clidden" id="api" style="margin-top: 210px;" clidden-animation="fadeInLeft .6s" clidden-from-bottom="50">
+            <h1 class="heading">Consectetur nulla</h1>
+            <p class="subheading">Maecenas interdum diam nec tellus ultricies mollis. Fusce mauris arcu, feugiat fringilla congue a, pretium et erat. Aenean fermentum rhoncus dapibus. Pellentesque ornare odio justo, non placerat est commodo eget. Proin pellentesque</p>
+        </div>
+
+        <div class="main clidden" id="examples" style="margin-top: 210px;" clidden-animation="fadeInRight .6s" clidden-from-bottom="50">
+            <h1 class="heading">Sivamus non leo</h1>
+            <p class="subheading">Nullam convallis nibh eu mattis ultricies. Sapien facilisis. Maecenas ex dolor, tempor sed condimentum nec, lacinia convallis nisi. Nulla eros nunc, accumsan mattis tincidunt quis, pretium vitae dui. Ut pharetra diam a purus maximus pretium in nec neque. </p>
+        </div>
+
+        <div class="main clidden" id="authors" style="margin-top: 210px;" clidden-animation="fadeInLeft .6s" clidden-from-bottom="50">
+            <h1 class="heading">Convallis pellentesque</h1>
+            <p class="subheading">Vivamus euismod bibendum augue, viverra efficitur lacus iaculis in. Morbi eu elit nisi. Mauris eget iaculis quam, sed blandit ipsum. Praesent tincidunt in metus sed pharetra. Quisque eget malesuada nisi. Nulla et nulla elit. Sed mi massa, interdum ac tristique non, gravida ut orci.</p>
+        </div>
+
+        <div class="main last clidden" id="download" style="margin-top: 210px;" clidden-animation="fadeInRight .6s" clidden-from-bottom="50">
+            <h1 class="heading">Irutrum sapien</h1>
+            <div class="secondary" style="margin-top: -10px;">
+                <h3>JavaScript</h3>
+                <p>Add &lt;script&gt; Assertively network real-time quality &lt;/body&gt;, dramatically enable premier e-tailers rather than multifunctional collaboration and idea-sharing. Collaboratively simplify empowered markets vis-a-vis professional infrastructures.</p>
+                <div class="much-code t">
+                    <p><span class="tag">&lt;div</span><span class="attribute"> class=</span><span class="value">"clidden"</span><span class="attribute"> clidden-animation=</span><span class="value">"bounce 1s"</span><span class="attribute"> clidden-from-top=</span><span class="value">"100"</span><span class="tag">&gt;&lt;/div&gt;</span></p>
+                </div>
+            </div>
+        </div>
+        <div id="footer" class="clidden" clidden-animation="bounceInUp .6s" clidden-from-bottom="-10">
+            <p>Clidden.js 2018</p>
+            <img src="images/totop.svg">
+            <div class="icon" onmousedown="var e=event,t=this;addWave(e,t,30,9,'rgba(255,250,255,.6');" onmouseup="var e=event;cancelWave(e);" onmousemove="var e=event;cancelWave(e);" onclick="scrollToElement('start')"></div>
+        </div>
+    </div>
+</div>
+<script src="clidden.js"></script>
+<script src="Main.js" defer></script>
+<script>(function(l){var i,s={touchend:function(){}};for(i in s)l.addEventListener(i,s)})(document);document.addEventListener("touchstart",function(){},true);</script>
+</body>
+</html>
